@@ -1,0 +1,63 @@
+<!-- src/app/todo/todo.component.html -->
+<div class="container mx-auto mt-8">
+    <h2 class="text-2xl font-bold mb-4">Todo List</h2>
+
+    <div class="mb-4">
+        <label for="task1" class="block text-sm font-medium text-gray-600">Item name:</label>
+        <input id="task1" type="text" [(ngModel)]="task1" class="mt-1 p-2 border rounded-md w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="task2" class="block text-sm font-medium text-gray-600">Item price:</label>
+        <input id="task2" type="text" [(ngModel)]="task2" class="mt-1 p-2 border rounded-md w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="task3" class="block text-sm font-medium text-gray-600">Item Category:</label>
+        <input id="task3" type="text" [(ngModel)]="task3" class="mt-1 p-2 border rounded-md w-full">
+    </div>
+
+    <div class="mb-4">
+        <label for="task4" class="block text-sm font-medium text-gray-600">Quantity:</label>
+        <input id="task4" type="text" [(ngModel)]="task4" class="mt-1 p-2 border rounded-md w-full">
+    </div>
+    <div class="mb-4">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-xl w-full" (click)="submit()">
+            Add Todo
+        </button>
+    </div>
+</div>
+<div class="text">
+    <div class="text" *ngIf="todoArray.length> 0">
+        <div class="text p-3 text-white w-full bg-sky-500 flex justify-between">
+            <div class="text font-serif font-medium text-xl text-center">S/N</div>
+            <div class="text font-serif font-medium text-xl text-center">Item-name</div>
+            <div class="text font-serif font-medium text-xl text-center">Item-price</div>
+            <div class="text font-serif font-medium text-xl text-center">item category</div>
+            <div class="text font-serif font-medium text-xl text-center">Quality</div>
+            <div class="text font-serif font-medium text-xl  text-center">Action</div>
+        </div>
+        <div class="text  w-full"  *ngFor="let item of todoArray; let id = index">
+            <div class="text flex p-3 justify-between">
+                <div class="text-center font-medium text-lg font-serif text">{{ id + 1 }}</div>
+                <div class="text-center font-medium text-lg font-serif text">{{ item.Task1 }}</div>
+                <div class="text-center font-medium text-lg font-serif text">{{ item.Task3 }}</div>
+                <div class="text-center font-medium text-lg font-serif text">{{ item.Task3 }}</div>
+                <div class="text-center font-medium text-lg font-serif text">{{ item.Task4 }}</div>
+                <div class="text flex justify-between">
+                    <button (click)="deleteitem(id)" class="text-white bg-red-500 hover:bg-red-600 m-1 p-2 rounded-lg font-medium">
+                        Delete
+                    </button>
+                    <button (click)="edit(id)" class="text-white bg-yellow-500 hover:bg-yellow-600 m-1 p-2 rounded-lg font-medium">
+                        Edit
+                    </button>
+                    <!-- <div (click)="view(id)" routerLink={{id}} class="text-white bg-sky-500 hover:bg-sky-600 m-1 p-3 rounded-lg font-medium">
+                        View
+                    </div> -->
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+</div>
